@@ -30,10 +30,10 @@ jobs:
           unzip sonar-scanner.zip
           sudo mv sonar-scanner-4.6.2.2472-linux /opt/sonar-scanner
 
-      - name: Set up SonarQube Scanner path
-        run: |
-          echo "SONAR_SCANNER_HOME=/opt/sonar-scanner" >> $GITHUB_ENV
-          echo "PATH=$PATH:$SONAR_SCANNER_HOME/bin" >> $GITHUB_ENV
+      #- name: Set up SonarQube Scanner path
+       # run: |
+        #  echo "SONAR_SCANNER_HOME=/opt/sonar-scanner" >> $GITHUB_ENV
+        #  echo "PATH=$PATH:$SONAR_SCANNER_HOME/bin" >> $GITHUB_ENV
 
       - name: SonarQube Scan 
         run: | 
