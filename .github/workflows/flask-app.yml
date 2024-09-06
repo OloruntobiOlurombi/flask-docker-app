@@ -1,0 +1,4 @@
+name: Deploy Flask App to EKS
+
+on: push 
+
