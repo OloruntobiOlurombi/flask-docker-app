@@ -37,6 +37,7 @@ jobs:
 
       - name: SonarQube Scan 
         run: | 
+          export PATH="$PATH:/opt/sonar-scanner/bin"
           sonar-scanner \
             -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} \
             -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }} \
