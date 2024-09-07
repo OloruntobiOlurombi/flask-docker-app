@@ -36,6 +36,7 @@ jobs:
 
       - name: SonarQube Scan 
         run: | 
+          export JAVA_HOME=$(which java | sed "s:/bin/java::")
           export PATH="$PATH:/opt/sonar-scanner/bin"
           sonar-scanner \
             -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} \
