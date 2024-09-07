@@ -36,8 +36,9 @@ jobs:
 
       - name: SonarQube Scan 
         run: | 
-          export JAVA_HOME=$(which java | sed "s:/bin/java::")
+          export JAVA_HOME=/opt/hostedtoolcache/Java_Adopt_jdk/17*/x64
           export PATH="$PATH:/opt/sonar-scanner/bin"
+          $JAVA_HOME/bin/java -version  # Verify Java version
           sonar-scanner \
             -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} \
             -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }} \
