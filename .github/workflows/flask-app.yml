@@ -15,28 +15,28 @@ env:
 
 jobs:
   # Step 1: Source Code Testing (Linting, Static Analysis, Unit Tests, Snyk Scan)
-  Lint-and-Static-Analysis:
-    name: Linting and Static Analysis (SonarQube) 
-    runs-on: ubuntu-latest 
-    steps:
-      - name: Checkout repository 
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+  # Lint-and-Static-Analysis:
+  #   name: Linting and Static Analysis (SonarQube) 
+  #   runs-on: ubuntu-latest 
+  #   steps:
+  #     - name: Checkout repository 
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master  
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
-          #ORGANIZATION_KEY: ${{ secrets.ORGANIZATION_KEY }} 
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
-        with:
-          args: >
-            -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }}
-            -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} 
-            -Dsonar.c.file.suffixes=-
-            -Dsonar.cpp.file.suffixes=-
-            -Dsonar.objc.file.suffixes=-
+  #     - name: SonarCloud Scan
+  #       uses: sonarsource/sonarcloud-github-action@master  
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
+  #         #ORGANIZATION_KEY: ${{ secrets.ORGANIZATION_KEY }} 
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+  #       with:
+  #         args: >
+  #           -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }}
+  #           -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} 
+  #           -Dsonar.c.file.suffixes=-
+  #           -Dsonar.cpp.file.suffixes=-
+  #           -Dsonar.objc.file.suffixes=-
 
   Unit-Tests:
     name: Unit Tests on Source Code
@@ -50,6 +50,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+
+      - name: List files
+        run: ls -la 
+
+      - name: List files in flask-docker-app
+        run: ls -la ./flask-docker-app      
 
       - name: Install dependencies 
         run: |
