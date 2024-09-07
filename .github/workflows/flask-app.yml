@@ -51,28 +51,26 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: List files
-        run: ls -la   
-
-      # - name: Install dependencies 
-      #   run: |
-      #     python -m venv venv
-      #     venv/bin/python -m pip install --upgrade pip
-      #     venv/bin/python -m pip install -r requirements.txt
-      #     venv/bin/python -m pip install pytest
+      - name: Install dependencies 
+        run: |
+          python -m venv venv
+          ${{ github.workspace }}/venv/bin/python -m pip install --upgrade pip
+          ${{ github.workspace }}/venv/bin/python -m pip install -r requirements.txt
+          ${{ github.workspace }}/venv/bin/python -m pip install pytest
 
       - name: Verify venv directory exists
-        run: ls -la ./venv
-      
+        run: ls -la ${{ github.workspace }}/venv
+
       - name: Run Unit and Integration Tests 
         run: |
-          venv/bin/python -m pytest --junitxml=results.xml  
+          ${{ github.workspace }}/venv/bin/python -m pytest --junitxml=results.xml  
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
         with:
           name: test-results
-          path: results.xml  
+          path: results.xml
+  
 
   SNYK-SCAN:
     name: Dependency Scanning (Snyk)
