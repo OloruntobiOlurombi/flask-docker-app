@@ -58,7 +58,6 @@ jobs:
           args: >
             -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }}
             -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} 
-            #-Dsonar.python.coverage.reportPaths*coverage.xml
 
   Unit-Tests:
     name: Unit Tests on Source Code
