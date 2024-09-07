@@ -54,14 +54,13 @@ jobs:
       - name: Install dependencies 
         run: |
           python -m venv venv
-          source venv/bin/activate 
-          pip install -r requirements.txt 
-          pip install pytest 
+          ./venv/bin/python -m pip install --upgrade pip
+          ./venv/bin/python -m pip install -r requirements.txt
+          ./venv/bin/python -m pip install pytest
       
       - name: Run Unit and Integration Tests 
-        run: | 
-          source venv/bin/activate 
-          pytest --junitxml=results.xml 
+        run: |
+          ./venv/bin/python -m pytest --junitxml=results.xml  
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
