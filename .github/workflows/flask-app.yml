@@ -34,6 +34,9 @@ jobs:
           args: >
             -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }}
             -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} 
+            -Dsonar.c.file.suffixes=-
+            -Dsonar.cpp.file.suffixes=-
+            -Dsonar.objc.file.suffixes=-
 
   Unit-Tests:
     name: Unit Tests on Source Code
