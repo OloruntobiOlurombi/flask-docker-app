@@ -52,10 +52,7 @@ jobs:
           python-version: '3.9'
 
       - name: List files
-        run: ls -la 
-
-      - name: List files in flask-docker-app
-        run: ls -la ./flask-docker-app      
+        run: ls -la   
 
       - name: Install dependencies 
         run: |
@@ -63,10 +60,9 @@ jobs:
           ./venv/bin/python -m pip install --upgrade pip
           ./venv/bin/python -m pip install -r requirements.txt
           ./venv/bin/python -m pip install pytest
-        working-directory: ./flask-docker-app
 
       - name: Verify venv directory exists
-        run: ls -la ./flask-docker-app/venv
+        run: ls -la ./venv
       
       - name: Run Unit and Integration Tests 
         run: |
