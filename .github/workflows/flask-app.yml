@@ -57,6 +57,10 @@ jobs:
           ./venv/bin/python -m pip install --upgrade pip
           ./venv/bin/python -m pip install -r requirements.txt
           ./venv/bin/python -m pip install pytest
+        working-directory: ./flask-docker-app
+
+      - name: Verify venv directory exists
+        run: ls -la ./flask-docker-app/venv
       
       - name: Run Unit and Integration Tests 
         run: |
