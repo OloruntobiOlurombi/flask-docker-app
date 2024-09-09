@@ -56,6 +56,11 @@ jobs:
           cd /home/runner/work/flask-docker-app
           ls -la
 
+      - name: List directory contents
+        run: |
+          cd /home/runner/work/flask-docker-app/flask-docker-app
+          ls -la
+
       - name: Install dependencies 
         run: |
           cd /home/runner/work/flask-docker-app
