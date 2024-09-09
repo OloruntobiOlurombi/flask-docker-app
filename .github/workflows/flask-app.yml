@@ -105,20 +105,17 @@ jobs:
       - name: Set up Python 
         uses: actions/setup-python@v4
         with:
-          python-version: '3'
+          python-version: '3.6'
 
       - name: Check Python version
         run: python --version
-
-      - name: Verify venv creation
-        run: ls -la venv/bin/
 
       - name: Clean up and recreate virtual environment
         run: |
           rm -rf venv
           python3 -m venv venv
 
-      - name: Create virtual environment
+       - name: Create virtual environment
         run: |
           python3 -m venv venv
 
