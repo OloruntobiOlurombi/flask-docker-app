@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies 
         run: |
-          cd ${{ github.workspace }}/flask-docker-app
+          cd ${{ github.workspace }}
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
@@ -69,7 +69,7 @@ jobs:
           cd ${{ github.workspace }}/flask-docker-app
           source venv/bin/active 
           pytest test_integration.py   
-          
+
   SNYK-SCAN:
     name: Dependency Scanning (Snyk)
     runs-on: ubuntu-latest 
