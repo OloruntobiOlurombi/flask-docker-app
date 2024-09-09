@@ -97,7 +97,7 @@ jobs:
   SNYK-SCAN:
     name: Dependency Scanning (Snyk)
     runs-on: ubuntu-latest 
-    needs: Unit-Tests
+    needs: UnitAndIntegrationTests
     steps:
       - name: Checkout repository 
         uses: actions/checkout@master
