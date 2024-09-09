@@ -67,7 +67,7 @@ jobs:
         run: |
           cd /home/runner/work/flask-docker-app/flask-docker-app
           ls -la venv venv
-          python -m venv venv
+          python -m venv 
           source venv/bin/activate
           ls -la venv venv
           pip3 install -r requirements.txt
