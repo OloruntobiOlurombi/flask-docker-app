@@ -99,7 +99,7 @@ jobs:
       - name: Run Integration tests
         run: |
           cd /home/runner/work/flask-docker-app/flask-docker-app
-          source venv/bin/active 
+          source venv/bin/activate
           pytest test_integration.py   
 
   SNYK-SCAN:
