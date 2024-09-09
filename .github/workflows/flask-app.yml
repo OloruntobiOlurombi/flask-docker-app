@@ -51,6 +51,15 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Check Python version
+        run: python --version
+
+      - name: Verify venv creation
+        run: ls -la venv/bin/
+
+      - name: Create virtual environment
+        run: python3 -m venv venv
+
       - name: List directory contents
         run: |
           cd /home/runner/work/flask-docker-app
