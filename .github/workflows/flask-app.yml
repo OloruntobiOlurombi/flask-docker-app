@@ -86,22 +86,19 @@ jobs:
       - name: Install dependencies 
         run: |
           cd /home/runner/work/flask-docker-app/flask-docker-app
-          # ls -la venv venv
-          # ls venv venv/bin/
-          # python -m venv venv
           source venv/bin/activate
           ls -la venv venv
           pip3 install -r requirements.txt
 
       - name: Run Unit Tests 
         run: |
-          cd ${{ github.workspace }}/flask-docker-app
+          cd /home/runner/work/flask-docker-app/flask-docker-app
           source venv/bin/activate 
           pytest test_app.py  
 
       - name: Run Integration tests
         run: |
-          cd ${{ github.workspace }}/flask-docker-app
+          cd /home/runner/work/flask-docker-app/flask-docker-app
           source venv/bin/active 
           pytest test_integration.py   
 
