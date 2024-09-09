@@ -60,6 +60,8 @@ jobs:
         run: |
           cd /home/runner/work/flask-docker-app/flask-docker-app
           ls -la
+          cd /home/runner/work/flask-docker-app/flask-docker-app/venv/bin
+          ls -la
 
       - name: Install dependencies 
         run: |
