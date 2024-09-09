@@ -102,10 +102,40 @@ jobs:
       - name: Checkout repository 
         uses: actions/checkout@master
 
+      - name: Set up Python 
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+
+      - name: Check Python version
+        run: python --version
+
+      - name: Verify venv creation
+        run: ls -la venv/bin/
+
+      - name: Clean up and recreate virtual environment
+        run: |
+          rm -rf venv
+          python3 -m venv venv
+
+      - name: Create virtual environment
+        run: |
+          python3 -m venv venv
+
+      - name: Check Python executable path
+        run: |
+          which python3
+
+      - name: List directory contents
+        run: |
+          cd /home/runner/work/flask-docker-app
+          ls -la
+
       - name: Install dependencies 
-        run: | 
-          python3 -m venv venv 
-          source venv/bin/activate 
+        run: |
+          cd /home/runner/work/flask-docker-app/flask-docker-app
+          source venv/bin/activate
+          ls -la venv venv
           pip3 install -r requirements.txt
 
       - name: Set up Snyk
