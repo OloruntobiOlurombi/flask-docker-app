@@ -53,28 +53,30 @@ jobs:
 
       - name: Install dependencies 
         run: |
+          cd ${{ github.workspace }}/flask-docker-app
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
 
       - name: Run Unit Tests 
         run: |
+          cd ${{ github.workspace }}/flask-docker-app
           source venv/bin/activate 
           pytest test_app.py  
 
       - name: Run Integration tests
         run: |
+          cd ${{ github.workspace }}/flask-docker-app
           source venv/bin/active 
           pytest test_integration.py   
-  
-
+          
   SNYK-SCAN:
     name: Dependency Scanning (Snyk)
     runs-on: ubuntu-latest 
     needs: Unit-Tests
     steps:
       - name: Checkout repository 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Snyk
         uses: snyk/actions/setup@v2
